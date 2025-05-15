@@ -10,28 +10,124 @@
 
 /* Navbar css */
 
-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  font-size: 1.6rem;
-  border: 2px solid #f7f7f8;
-  padding: 8px 12px;
-  margin-top: 45px;
-  margin-left: 7rem;
+/* ======== Navbar Styles ======== */
+/* Barre de navigation */
+/* === NAVBAR DE BASE === */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #faf6f6;
+  color: rgb(34, 32, 32);
+  position: relative;
+  z-index: 10;
 }
-header p {
-  font-family: "Exo 2", sans-serif;
-  letter-spacing: 7px;
-  word-spacing: 0px;
-  color: rgb(246, 246, 249);
-  font-weight: 800;
+
+.logo-title {
+  display: flex;
+  align-items: center;
 }
-header p img {
-  font-size: 10px;
-  max-width: 30px;
+
+.logo {
+  width: 40px;
+  margin-right: 10px;
 }
+
+h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+/* Ligne bleue sous le titre */
+.logo-title h1 {
+  padding-bottom: 3px;
+  border-bottom: 4px solid #007bff;
+  display: inline-block;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: rgb(11, 10, 10);
+  font-size: 18px;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #00bfff;
+  transform: scale(1.05);
+}
+
+/* Liens "Créer un compte" et "Login" */
+.nav-links li:last-child a,
+.nav-links li:nth-last-child(2) a {
+  background-color: #0077ff;
+  color: white !important;
+  padding: 0px 05px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-links li:last-child a:hover,
+.nav-links li:nth-last-child(2) a:hover {
+  background-color: #005fcc;
+  transform: scale(1.05);
+}
+
+/* === MENU BURGER POUR ÉCRANS PETITS === */
+.burger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.burger span {
+  height: 3px;
+  width: 25px;
+  background: #333;
+  margin: 4px;
+  border-radius: 2px;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    background-color: #faf6f6;
+    position: absolute;
+    top: 65px;
+    right: 0;
+    width: 100%;
+    display: none;
+    padding: 20px 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .burger {
+    display: flex;
+  }
+}
+
+
 
 /* Hero css */
 
@@ -44,32 +140,38 @@ header p img {
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
-  padding: 150px 0 70px 0;
-  padding-left: 7rem;
+  padding: 100px 0 70px 0;
+  padding-left: 3rem;
 }
+
 .hero .content {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 40px;
 }
-.hero .content .title {
+
+.hero .content .title h1 {
   color: whitesmoke;
-  font-size: 4rem;
+  font-size: clamp(6.2rem, 4vw, 5rem);
 }
+
 .hero .content .sub-title p {
   font-weight: 400;
   color: whitesmoke;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   line-height: 45px;
 }
+
 .hero .content .sub-title p:last-child {
   color: #0095ff;
 }
+
 .hero .content .buttons {
   display: flex;
   align-items: center;
   gap: 25px;
 }
+
 .hero .content .buttons button {
   padding: 15px 30px;
   font-size: 1.2rem;
@@ -78,67 +180,70 @@ header p img {
   background: transparent;
   transition: 0.3s;
 }
+
 .hero .content .buttons button:hover {
   cursor: pointer;
   background: #0095ff;
   color: whitesmoke;
   transition: 0.3s;
 }
+
+/* Responsive Adjustments */
 @media (max-width: 1050px) {
   .hero {
     padding-left: 2.5rem;
   }
+
   header {
     margin-left: 2.5rem;
   }
-  .hero .content .title {
-    font-size: 2.75rem;
-  }
+
   .hero .content .sub-title p {
     font-size: 1.3rem;
     line-height: normal;
     margin-bottom: 5px;
   }
 }
+
 @media (max-width: 880px) {
   .hero {
     background-position: center;
   }
-  .hero .content .title {
-    font-size: 2.45rem;
-  }
+
   .hero .content .sub-title p {
     font-size: 1.2rem;
   }
 }
+
 @media (max-width: 600px) {
   .hero {
     background-position: bottom;
   }
-  .hero .content .title {
-    font-size: 2.2rem;
-  }
+
   .hero .content .sub-title p {
     font-size: 1rem;
   }
+
   .hero .content .buttons button {
     font-size: 1rem;
   }
 }
+
 @media (max-width: 467px) {
   .hero {
     padding-left: 1rem;
   }
+
   header {
     margin-left: 1rem;
   }
+
   .hero .content .buttons {
     flex-direction: column;
     gap: 20px;
     align-items: flex-start;
-  }
 }
-
+}
 /* WorkoutSessions css */
 
 .workout_session {
@@ -534,12 +639,45 @@ header p img {
 
 /* Footer css */
 
-footer {
+/* footer {
   padding: 20px;
   background: #111;
   text-align: center;
   font-size: 20px;
   color: #0095ff;
+} */
+.footer {
+  background-color: #ede7e7;
+  color: #161313;
+  text-align: center;
+  padding: 30px 10px;
+  margin-top: 50px;
+}
+
+.footer-container {
+  max-width: 1000px;
+  margin: auto;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.footer p {
+  margin: 5px 0;
+}
+
+.social-icons {
+  margin-top: 15px;
+}
+
+.social-icons a {
+  margin: 0 10px;
+  color: #090808;
+  font-size: 24px;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #00aced; /* لون مختلف عند التحويل */
 }
 
 /* BMICalculator css */
@@ -628,4 +766,304 @@ footer {
     flex-direction: column-reverse;
     gap: 1px;
   }
+}
+
+/* ABOUT */
+.about-container {
+  max-width: 900px;
+  margin: 80px auto;
+  padding: 30px;
+  background-color: #fefefe;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.about-container h1 {
+  font-size: 42px;
+  color: #222;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.about-container h2 {
+  font-size: 28px;
+  color: #333;
+  margin-top: 30px;
+}
+
+.about-container p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #555;
+  margin-top: 10px;
+}
+
+.about-container ul {
+  margin-top: 15px;
+  padding-left: 20px;
+}
+
+.about-container li {
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+/* LOGIN */
+.login-container {
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 30px 40px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", sans-serif;
+  text-align: center;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.login-container h2 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border 0.3s ease;
+}
+
+.login-form input:focus {
+  outline: none;
+  border-color: #0077ff;
+  box-shadow: 0 0 5px rgba(0, 119, 255, 0.2);
+}
+
+.login-form button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  background-color: #0077ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+  background-color: #005dd1;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* REGISTER */
+.register-form {
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 30px 40px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", sans-serif;
+  text-align: center;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.register-form h2 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.register-form input {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border 0.3s ease;
+}
+
+.register-form input:focus {
+  outline: none;
+  border-color: #0077ff;
+  box-shadow: 0 0 5px rgba(0, 119, 255, 0.2);
+}
+
+.register-form button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  background-color: #0077ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register-form button:hover {
+  background-color: #005dd1;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* CONTACT */
+/* Styles généraux pour le corps de la page */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background-color: #f5f6fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Section de contact */
+.contact-section {
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 30px 40px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: "Segoe UI", sans-serif;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.contact-section h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.contact-section p {
+  color: #555;
+  font-size: 15px;
+  margin-bottom: 25px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  resize: none;
+  transition: border 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #0077ff;
+  box-shadow: 0 0 5px rgba(0, 119, 255, 0.2);
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #0077ff;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #005dd1;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+ /* Dashbord */
+
+ .dashboard-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  background: linear-gradient(135deg, #e0f7fa, #80deea);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.dashboard-card {
+  background-color: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+}
+
+.dashboard-card h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #0077cc;
+}
+
+.dashboard-card p {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.dashboard-actions button {
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin: 0 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.dashboard-actions button:hover {
+  background-color: #005fa3;
+  transform: scale(1.05);
 }
