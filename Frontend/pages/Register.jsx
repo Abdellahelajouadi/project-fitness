@@ -21,7 +21,8 @@ try {
 console.log("Sending data: ", formData); // Click on "console.log" to read the message  
 const response = await axios.post("http://localhost:5000/api/users/register", formData);
 localStorage.setItem("token", response.data.token);
-alert("Account created successfully!");
+console.log("Saved token:", response.data.token);
+// alert("Account created successfully!");
 navigate("/dashboard");
 } catch (error) { 
 alert("Error registering"); 

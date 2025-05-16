@@ -1,9 +1,9 @@
 // src/middleware/authMiddleware.js
-
 const jwt = require('jsonwebtoken');
 
 const protect = (req, res, next) => {
-  const authHeader = req.header('Authorization');
+  // جلب الهيدر Authorization من الريكوست
+  const authHeader = req.headers.authorization;
 
   // التحقق من وجود الهيدر وأنه يبدأ بـ "Bearer "
   if (!authHeader || !authHeader.startsWith('Bearer ')) {
@@ -20,11 +20,11 @@ const protect = (req, res, next) => {
     // تخزين بيانات المستخدم المفكوكة في req.user
     req.user = { id: decoded.id };
 
-    // تمرير الطلب للمرحلة التالية
+    // تمرير الطلب للمرحلة التالية (controller)
     next();
   } catch (error) {
     return res.status(401).json({ message: 'Token non valide' });
   }
 };
 
-module.exports=protect;
+module.exports = protect;

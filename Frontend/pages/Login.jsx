@@ -19,7 +19,7 @@ e.preventDefault();
 try { 
 const response = await axios.post("http://localhost:5000/api/users/login", formData); 
 localStorage.setItem("token", response.data.token);
-alert("Login successful!");
+// alert("Login successful!");
 navigate("/dashboard");
 } catch (error) {
 alert("Login error. Please check your credentials.");

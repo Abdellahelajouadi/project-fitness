@@ -7,6 +7,8 @@ import Login from './Login';
 import PageNotFound from './PageNotFound';
 import Dashboard from './Dashboard';
 import PrivateRoute from '../src/components/PrivateRoute';
+import AddWorkout from './AddWorkout';
+import WorkoutList from './WorkoutList';
 
 const Markup = () => {
   return (
@@ -16,10 +18,11 @@ const Markup = () => {
       <Route path="contact" element={<Contact />} />
       <Route path="register" element={<Register />} />
       <Route path="login" element={<Login />} />
-      <Route
-        path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
-    
+      <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+      <Route path="/add-workout" element={<PrivateRoute><AddWorkout /></PrivateRoute>}/>
+      <Route path="/workouts" element={<WorkoutList />} />
       <Route path="*" element={<PageNotFound />} />
+
 
     </Routes>
   );
