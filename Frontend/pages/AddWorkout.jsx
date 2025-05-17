@@ -32,11 +32,11 @@ const AddWorkout = () => {
 
   try {
     await axios.post("http://localhost:5000/api/workouts", formData, config);
-    alert("✅ Workout added successfully!");
+    // alert("✅ Workout added successfully!");
     navigate("/dashboard");
   } catch (error) {
     console.error("Error response:", error.response?.data || error);
-    // alert("❌ Failed to add workout.");
+   alert("❌ Failed to add workout.");
   }
 };
 

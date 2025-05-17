@@ -18,9 +18,9 @@ const Markup = () => {
       <Route path="contact" element={<Contact />} />
       <Route path="register" element={<Register />} />
       <Route path="login" element={<Login />} />
-      <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
       <Route path="/add-workout" element={<PrivateRoute><AddWorkout /></PrivateRoute>}/>
       <Route path="/workouts" element={<WorkoutList />} />
+      <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
       <Route path="*" element={<PageNotFound />} />
 
 

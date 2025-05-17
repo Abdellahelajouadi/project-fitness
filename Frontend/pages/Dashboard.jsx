@@ -1,32 +1,57 @@
 // src/pages/Dashboard.js
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
-const navigate = useNavigate();
+  const [workouts, setWorkouts] = useState([]);
 
-const handleLogout = () => {
-localStorage.removeItem("token"); // Remove the token
-navigate("/login"); // Return to the login page
-};
+  useEffect(() => {
+    const fetchWorkouts = async () => {
+      const token = localStorage.getItem("token");
+      if (!token) return;
 
-const handleAddWorkout = () => {
-navigate("/add-workout"); // Go to the workout add page (we'll set it up later)
-};
+      try {
+        const res = await axios.get("http://localhost:5000/api/workouts", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
 
-return (
-<div style={{ padding: "20px" }}>
-<h2>🏋️‍♀️ Dashboard</h2>
-<p>Welcome to your dashboard!</p>
+        setWorkouts(res.data);
+      } catch (err) {
+        console.error("Failed to fetch workouts:", err);
+      }
+    };
 
-<button onClick={handleAddWorkout} style={{ marginRight: "10px" }}>
-➕ Add Workout
-</button>
-<button onClick={handleLogout} style={{ backgroundColor: "white", color: "black" }}>
-🔐 Logout
-</button>
-</div>
-);
+    fetchWorkouts();
+  }, []);
+
+  return (
+    <div className="dashboard-container">
+      <h2 className="dashboard-title">🏋️‍♀️ Your Workouts</h2>
+
+      {workouts.length === 0 ? (
+        <p className="btn-not">No workouts yet.</p>
+      ) : (
+        <ul className="workout-list">
+          {workouts.map((workout) => (
+            <li key={workout._id} className="workout-card">
+              <h3>{workout.title}</h3>
+              <p>Reps: {workout.reps}</p>
+              <p>Load: {workout.load} kg</p>
+              <p className="date">{new Date(workout.createdAt).toLocaleString()}</p>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {/* ✅ زر الإضافة تحت */}
+      <Link to="/add-workout">
+        <button className="add-btn">➕ Add a Workout</button>
+      </Link>
+    </div>
+  );
 };
 
 export default Dashboard;

@@ -15,13 +15,13 @@
 /* === NAVBAR DE BASE === */
 .navbar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  background-color: #faf6f6;
-  color: rgb(34, 32, 32);
-  position: relative;
-  z-index: 10;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #3b444b;
+    color: rgb(247 240 240);
+    position: relative;
+    z-index: 10;
 }
 
 .logo-title {
@@ -42,7 +42,7 @@ h1 {
 /* Ligne bleue sous le titre */
 .logo-title h1 {
   padding-bottom: 3px;
-  border-bottom: 4px solid #007bff;
+  border-bottom: 4px solid #f2f4f5;
   display: inline-block;
 }
 
@@ -57,10 +57,10 @@ h1 {
 
 .nav-links a {
   text-decoration: none;
-  color: rgb(11, 10, 10);
-  font-size: 18px;
-  font-weight: 500;
-  transition: color 0.3s ease, transform 0.2s ease;
+    color: rgb(255 255 255);
+    font-size: 18px;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .nav-links a:hover {
@@ -71,8 +71,8 @@ h1 {
 /* Liens "Créer un compte" et "Login" */
 .nav-links li:last-child a,
 .nav-links li:nth-last-child(2) a {
-  background-color: #0077ff;
-  color: white !important;
+  background-color: #f8f6f6;
+  color: rgb(2, 2, 2) !important;
   padding: 0px 05px;
   border-radius: 6px;
   transition: background-color 0.3s ease, transform 0.2s ease;
@@ -80,7 +80,7 @@ h1 {
 
 .nav-links li:last-child a:hover,
 .nav-links li:nth-last-child(2) a:hover {
-  background-color: #005fcc;
+  background-color: #ecf0f4;
   transform: scale(1.05);
 }
 
@@ -163,7 +163,7 @@ h1 {
 }
 
 .hero .content .sub-title p:last-child {
-  color: #0095ff;
+  color: #fafbfc;
 }
 
 .hero .content .buttons {
@@ -175,16 +175,17 @@ h1 {
 .hero .content .buttons button {
   padding: 15px 30px;
   font-size: 1.2rem;
-  color: #0095ff;
-  border: 1px solid #0095ff;
+  color: #f6f7f8;
+  border: 4px solid #f7fafc;
   background: transparent;
   transition: 0.3s;
+  border-radius: 10px;
 }
 
 .hero .content .buttons button:hover {
   cursor: pointer;
-  background: #0095ff;
-  color: whitesmoke;
+  background: #fbfbfd;
+  color: rgb(13, 12, 12);
   transition: 0.3s;
 }
 
@@ -647,8 +648,8 @@ h1 {
   color: #0095ff;
 } */
 .footer {
-  background-color: #ede7e7;
-  color: #161313;
+  background-color: #3b444b;;
+  color: #fbf7f7;
   text-align: center;
   padding: 30px 10px;
   margin-top: 50px;
@@ -671,7 +672,7 @@ h1 {
 
 .social-icons a {
   margin: 0 10px;
-  color: #090808;
+  color: #f6f1f1;
   font-size: 24px;
   transition: color 0.3s ease;
 }
@@ -1065,17 +1066,65 @@ body {
 }
 
 .add-btn {
-  background-color: #2563eb;
-  color: white;
-  padding: 12px;
-  border: none;
-  border-radius: 10px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
+  background-color: #7ea5fb;
+    color: white;
+    padding: 5px;
+    /* border: none; */
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-size: 20px;
+    margin: 0px;
+};
+
 
 .add-btn:hover {
-  background-color: #1e40af;
+  background-color: #2a78f6;
 }
 
+
+/* Dashbord */
+.dashboard-container {
+  padding: 25px;
+  font-size: 24px;
+  margin: 50px;
+  text-align: center;
+}
+
+.dashboard-title {
+  font-size: 46px;
+    margin-bottom: 15px;
+}
+
+.btn-not {
+  padding: 40px;
+    color: red;
+    font-size: 44px;
+}
+
+.workout-list {
+  list-style: none;
+  padding: 0;
+}
+
+.workout-card {
+  background-color: #f2f2f2;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.workout-card h3 {
+  margin: 0;
+  color: #333;
+}
+
+.workout-card p {
+  margin: 5px 0;
+}
+
+.date {
+  font-size: 12px;
+  color: #777;
+}
