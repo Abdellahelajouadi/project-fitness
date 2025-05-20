@@ -5,39 +5,40 @@ const WorkoutList = () => {
   const [workouts, setWorkouts] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // Chargement initial des workouts
   useEffect(() => {
-    const fetchWorkouts = async () => {
-      const token = localStorage.getItem("token");
-
-      try {
-        const response = await axios.get("http://localhost:5000/api/workouts", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        setWorkouts(response.data);
-        setLoading(false);
-      } catch (error) {
-        console.error("Failed to fetch workouts:", error.response?.data || error);
-        setLoading(false);
-      }
-    };
-
     fetchWorkouts();
   }, []);
 
+  const fetchWorkouts = async () => {
+    const token = localStorage.getItem("token");
+    try {
+      const response = await axios.get("http://localhost:5000/api/workouts", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      setWorkouts(response.data);
+    } catch (error) {
+      console.error("Failed to fetch workouts:", error.response?.data || error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="workout-list-container">
-      <h2>📋 Your Workouts</h2>
+      <h2>📋 Vos Workouts</h2>
+
       {loading ? (
-        <p>Loading workouts...</p>
+        <p>Chargement en cours...</p>
       ) : workouts.length === 0 ? (
-        <p>No workouts found.</p>
+        <p>Aucun workout trouvé.</p>
       ) : (
-        <ul>
+        <ul className="workout-list">
           {workouts.map((workout) => (
-            <li key={workout._id}>
-              <strong>{workout.title}</strong> - {workout.reps} reps @ {workout.load} kg
+            <li key={workout._id} className="workout-item">
+              <div className="workout-info">
+                <strong>{workout.title}</strong> - {workout.reps} répétitions @ {workout.load} kg
+              </div>
             </li>
           ))}
         </ul>

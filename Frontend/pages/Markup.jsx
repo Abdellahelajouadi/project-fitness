@@ -9,6 +9,7 @@ import Dashboard from './Dashboard';
 import PrivateRoute from '../src/components/PrivateRoute';
 import AddWorkout from './AddWorkout';
 import WorkoutList from './WorkoutList';
+import EditWorkout from './EditWorkout';
 
 const Markup = () => {
   return (
@@ -21,6 +22,7 @@ const Markup = () => {
       <Route path="/add-workout" element={<PrivateRoute><AddWorkout /></PrivateRoute>}/>
       <Route path="/workouts" element={<WorkoutList />} />
       <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+      <Route path="/edit-workout/:id" element={<EditWorkout />} />
       <Route path="*" element={<PageNotFound />} />
 
 
